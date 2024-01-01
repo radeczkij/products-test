@@ -1,39 +1,55 @@
-// models.js
-const Sequelize = require("sequelize");
-const { DataTypes } = Sequelize;
-const db = new Sequelize(process.env.DB_CONNECTION_STRING);
+import { Sequelize } from "sequelize";
+import sequelize from "../config/sequelize.js";
 
-const Models = db.define("models", {
+const Models = sequelize.define("models", {
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+    allowNull: false,
+  },
   name: {
-    type: DataTypes.STRING,
+    type: Sequelize.STRING,
     allowNull: false,
   },
 });
 
-const Products = db.define("products", {
+const Products = sequelize.define("products", {
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+    allowNull: false,
+  },
   modelName: {
-    type: DataTypes.STRING,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   name: {
-    type: DataTypes.STRING,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   price: {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
   },
   article: {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
   },
   sizes: {
-    type: DataTypes.ARRAY(DataTypes.INTEGER),
+    type: Sequelize.ARRAY(Sequelize.INTEGER),
     allowNull: false,
   },
 });
-
 Models.hasMany(Products);
 Products.belongsTo(Models);
 
-module.exports = { Models, Products, db };
+sequelize
+  .sync()
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((err) => console.log(err));
+
+module.exports = { Models, Products };
