@@ -19,7 +19,7 @@ export const getGoogleSheetData = async () => {
   return response.data.values;
 };
 
-const getProductsCount = async () => {
+const getName = async () => {
   const response = await googleSheets.spreadsheets.values.get({
     spreadsheetId,
     range: `Nike Lebron, Jordan!B4:Z4`,
@@ -31,7 +31,7 @@ const getProductsCount = async () => {
 };
 
 export const configureProducts = async () => {
-  const lengthRows = await getProductsCount();
+  const lengthRows = await getName();
   const data = await getGoogleSheetData();
   const arrayProduct = [];
   for (let i = 0; i < lengthRows; i++) {

@@ -5,7 +5,7 @@ const PORT = 5000;
 
 const app = express();
 
-app.get("/", async (req, res) => {
+app.get("/api", async (req, res) => {
   res.send(await configureProducts());
 });
 
