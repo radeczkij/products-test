@@ -1,5 +1,4 @@
 import { Sequelize } from "sequelize";
-Starti;
 
 const sequelize = new Sequelize("productstest", "postgres", "root", {
   dialect: "postgres",

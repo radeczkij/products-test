@@ -45,11 +45,4 @@ const Products = sequelize.define("products", {
 Models.hasMany(Products);
 Products.belongsTo(Models);
 
-sequelize
-  .sync()
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((err) => console.log(err));
-
 module.exports = { Models, Products };
