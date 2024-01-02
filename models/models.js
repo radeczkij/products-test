@@ -21,10 +21,6 @@ const Products = sequelize.define("products", {
     primaryKey: true,
     allowNull: false,
   },
-  modelName: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
   name: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -33,7 +29,7 @@ const Products = sequelize.define("products", {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  article: {
+  articul: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },

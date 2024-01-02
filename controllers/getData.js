@@ -36,7 +36,7 @@ export const configureProducts = async () => {
   const arrayProduct = [];
   for (let i = 0; i < lengthRows; i++) {
     const product = {
-      list: data[0][i].split(" ").slice(0, 3).join(" "),
+      // list: data[0][i].split(" ").slice(0, 3).join(" "),
       name: data[0][i],
       price: data[1][i],
       articul: data[2][i],
