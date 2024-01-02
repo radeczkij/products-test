@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize";
+Starti;
 
-const sequelize = new Sequelize("productsdb", "postgres", "root", {
+const sequelize = new Sequelize("productstest", "postgres", "root", {
   dialect: "postgres",
   host: "localhost",
   define: {
